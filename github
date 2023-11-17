@@ -1,0 +1,49 @@
+Combinacion de la rama de Bob
+Volver al directorio Bob y cree una rama denomina add-cat
+cd ../Bob
+git checkout -b add-cat
+--
+Para comprobar los cambios 
+git status
+--
+Agregar el nuevo archivo
+git add .
+git commit -a -m "Add picture of Bob cat"
+--
+Bob combian en la rama para que de su repositorio tenga sus cambios main a Alice
+git merge add-cat --no-edit
+git push
+--
+Sincronizacion de los repositorios
+cd ../Alice
+git pull
+--
+Creacion de ramas para Alice y Bob
+Se debe de asegurar que se encuentre en la rama de Alice
+git checkout -b add-cat
+--
+Cambiar al directorio de Bob y crear una rama
+cd ../Bob
+git checkout -b style-cat
+--
+Alice realiza cambios, volvemos a la rama main y ejecutamos git pull
+git add Assets
+git commit -a -m "Add picture of Alice cat"
+git checkout main
+git pull
+git merger --ff-only add-cat
+git push
+--
+Realizar de un cambio como Bob, sincronice cambios 
+cd ../Bob
+git commit -a -m "Style Bob cat"
+git checkout main
+git pull
+git merge style-cat
+--
+Para restaurar la rama main a su estado anterior a la combinacion
+git merge --abort
+--
+Para volver a la ubicacion en la que estaban antes de que iniciaran la combinacion
+git reset --hard
+--
